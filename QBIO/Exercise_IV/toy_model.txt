@@ -1,0 +1,41 @@
+#-------------------------------------------------------------------------------
+# Name:        Example_1_toymodel_model.txt
+#              Model definition file for Example 1 of mfapy
+#
+# Author:      Fumio_Matsuda
+#
+# Created:     12/06/2018
+# Copyright:   (c) Fumio_Matsuda 2021
+# Licence:     MIT license
+#-------------------------------------------------------------------------------
+//Reactions
+# ID	For stoichiometry matrix	For atom mapping	Atom mapping	External ID
+v1	AcCoA + OAC --> Cit	AcCoA + OAC --> Cit	AB + CDEF --> FEDBAC	(kegg:R00351)	0	300
+v2	Cit --> AKG + CO2ex	Cit --> AKG + CO2ex	ABCDEF --> ABCDE + F	(kegg:R00709)	0	300
+v3	AKG --> Glu	AKG --> Glu	ABCDE --> ABCDE 	(kegg:R00243)	0	300
+v4	AKG --> Suc + CO2ex	AKG --> Suc + CO2ex	ABCDE --> BCDE + A	(kegg:R01197)	0	300
+v5	Suc --> Fum	Suc --> Fum	ABCD --> ABCD	(kegg:R02164)	0	300
+v6	Fum --> OAC	Fum --> OAC	ABCD --> ABCD	(kegg:R01082)	0	300
+v7	OAC --> Fum	OAC --> Fum	ABCD --> ABCD	(kegg:R01082)	0	300
+v8	Asp --> OAC	Asp --> OAC	ABCD --> ABCD	(kegg:R00355)	0	300
+v9	Glu --> Gluex	nd	nd 	(kegg:R00243)	0	300
+//Metabolites
+# Name	Number of atom	Symmetry	Carbon source	Excreted metabolite	External ID
+CO2ex	1	no	no	excreted	(kegg:C00011)	0	300
+AcCoA	2	no	carbonsource	no	(kegg:C00024)	0	300
+OAC	4	no	no	no	(kegg:C00036)	0	300
+Cit	6	no	no	no	(kegg:C00158)	0	300
+AKG	5	no	no	no	(kegg:C00026)	0	300
+Suc	4	symmetry	no	no	(kegg:C00042)	0	300
+Fum	4	symmetry	no	no	(kegg:C00122)	0	300
+Glu	5	no	no	no	(kegg:C00025)	0	300
+Gluex	5	no	no	excreted	(kegg:C00025)	0	300
+Asp	4	no	carbonsource	no	(kegg:C00049)	0	300
+//Reversible_reactions
+#Name	Forward reaction	Reverse reaction	External ID
+FUM	v6	v7	(kegg:R01082)	-300	300
+# Definition of Target fragments
+//Target_fragments
+#Name	Type (gcms and msms)	Corresponding metabolite and atoms	Usage	Formula (Experimental)
+GluMes	gcms	Glu_1:2:3:4:5	use	C5H10N2O3
+//End
